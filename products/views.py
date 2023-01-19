@@ -3,4 +3,6 @@ from django.shortcuts import render
 
 def index(request):
   return HttpResponse('Hello World')
-  
+
+def new_products(request):
+  return HttpResponse('NEW PRODUCTS')
