@@ -41,12 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'debug_toolbar',
     'rest_framework',
-    'corsheaders',
     'products'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,10 +53,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
 ]
 
 INTERNAL_IPS = [
@@ -70,7 +64,7 @@ ROOT_URLCONF = 'storefront.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ecommerce-frontend', 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ecommerce-frontend', 'build', 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
