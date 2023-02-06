@@ -133,6 +133,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Disable the Django REST framework browsable API view
 # REST_FRAMEWORK = {
 #      'DEFAULT_RENDERER_CLASSES': (
 #          'rest_framework.renderers.JSONRenderer',
