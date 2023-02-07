@@ -32,6 +32,3 @@ def delete_products(request, pk):
     note.delete()
   return Response(status=status.HTTP_204_NO_CONTENT)
 
-class ProductView(generics.ListAPIView):
-  queryset = Product.objects.all()
-  serializer_class = ProductSerializer

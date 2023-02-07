@@ -1,4 +1,3 @@
-import "./App.css";
 import ProductGrid from "./components/ProductGrid";
 
 function App() {
