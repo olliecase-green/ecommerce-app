@@ -1,27 +1,53 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import Network from "./Network";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 export default function ProductGrid() {
-  const [products, setProducts] = useState("products should be here");
+  const [products, setProducts] = useState([]);
+  const network = new Network();
 
   useEffect(() => {
-    getProducts();
+    returnProducts();
   }, []);
 
-  async function getProducts() {
-    try {
-      const response = await axios.get("/products/products/");
-      const data = response.data;
-      console.log(data);
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
+  async function returnProducts() {
+    const returnedProducts = await network.getProducts();
+    setProducts(returnedProducts);
+  }
+
+  function displayProducts() {
+    return (
+      <div
+        style={{
+          display: "grid",
+          "grid-template-columns": "repeat(auto-fit, minmax(200px, 1fr))",
+        }}
+      >
+        {products.map((product) => {
+          return ProductCard(product);
+        })}
+      </div>
+    );
+  }
+
+  function ProductCard(product) {
+    return (
+      <Card style={{ margin: "5px" }}>
+        <Card.Img variant="top" src={product.image_url} />
+        <Card.Body>
+          <Card.Title>{product.name}</Card.Title>
+          <Card.Text>Product info here</Card.Text>
+          <Button variant="primary">Product link here</Button>
+        </Card.Body>
+      </Card>
+    );
   }
 
   return (
-    <div>
-      <h1>This is the products page</h1>
-    </div>
+    <>
+      <h1>Products</h1>
+      {displayProducts()}
+    </>
   );
 }
