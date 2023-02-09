@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../css/ProductGrid.css";
 import Network from "./Network";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -17,23 +18,14 @@ export default function ProductGrid() {
   }
 
   function displayProducts() {
-    return (
-      <div
-        style={{
-          display: "grid",
-          "grid-template-columns": "repeat(auto-fit, minmax(200px, 1fr))",
-        }}
-      >
-        {products.map((product) => {
-          return ProductCard(product);
-        })}
-      </div>
-    );
+    return products.map((product) => {
+      return ProductCard(product);
+    });
   }
 
   function ProductCard(product) {
     return (
-      <Card style={{ margin: "5px" }}>
+      <Card className="product-card">
         <Card.Img variant="top" src={product.image_url} />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
@@ -47,7 +39,7 @@ export default function ProductGrid() {
   return (
     <>
       <h1>Products</h1>
-      {displayProducts()}
+      <div className="product-grid">{displayProducts()}</div>
     </>
   );
 }
