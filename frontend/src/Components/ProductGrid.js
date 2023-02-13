@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/ProductGrid.css";
 import Network from "./Network";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import ProductCard from "./ProductCard";
 
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
@@ -19,21 +18,15 @@ export default function ProductGrid() {
 
   function displayProducts() {
     return products.map((product) => {
-      return ProductCard(product);
+      return (
+        <ProductCard
+          name={product.name}
+          image={product.image_url}
+          price={product.price}
+          stock={product.stock}
+        />
+      );
     });
-  }
-
-  function ProductCard(product) {
-    return (
-      <Card className="product-card">
-        <Card.Img variant="top" src={product.image_url} />
-        <Card.Body>
-          <Card.Title>{product.name}</Card.Title>
-          <Card.Text>Product info here</Card.Text>
-          <Button variant="primary">Product link here</Button>
-        </Card.Body>
-      </Card>
-    );
   }
 
   return (

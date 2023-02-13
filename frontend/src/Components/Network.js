@@ -1,5 +1,4 @@
 import { Component } from "react";
-import axios from "axios";
 
 export default class Network extends Component {
   async getProducts() {
