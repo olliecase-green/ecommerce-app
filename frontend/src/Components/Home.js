@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      {/* <Button>
-        <Link to="/reviews">Click for reviews</Link>
-      </Button> */}
+      <Button onClick={console.log("clicked")}>
+        {/* <Link to="/reviews"></Link> */}
+        Click for reviews
+      </Button>
       <ProductGrid />
     </>
   );
