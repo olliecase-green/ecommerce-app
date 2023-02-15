@@ -1,6 +1,6 @@
 import Home from "./components/Home";
 import ProductGrid from "./components/ProductGrid";
-import "./css/App.css";
+import "./main.css";
 import { Routes, Route } from "react-router-dom";
 import Reviews from "./components/Reviews";
 

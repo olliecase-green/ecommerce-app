@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../css/ProductGrid.css";
+import "../main.css";
 import Network from "./Network";
 import ProductCard from "./ProductCard";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function ProductGrid() {
   const [products, setProducts] = useState([]);
@@ -32,9 +34,15 @@ export default function ProductGrid() {
   }
 
   return (
-    <>
-      <h1>Products</h1>
+    <div>
+      <h1 className="title">Products</h1>
+      <Button variant="light">
+        <Link to="../reviews">Click for reviews</Link>
+      </Button>
+      <Button variant="light">
+        <Link to="/">Click for home page</Link>
+      </Button>
       <div className="product-grid">{displayProducts()}</div>
-    </>
+    </div>
   );
 }

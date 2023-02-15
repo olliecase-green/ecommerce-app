@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ProductCard.css";
+import "../main.css";
 import Button from "react-bootstrap/Button";
 
 export default function ProductCard(props) {
