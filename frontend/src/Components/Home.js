@@ -1,16 +1,19 @@
 import React from "react";
-import ProductGrid from "./ProductGrid";
-import Button from "react-bootstrap/esm/Button";
 import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export default function Home() {
   return (
-    <>
-      <Button onClick={console.log("clicked")}>
-        {/* <Link to="/reviews"></Link> */}
-        Click for reviews
-      </Button>
-      <ProductGrid />
-    </>
+    <div>
+      <h1>Home</h1>
+      <ListGroup>
+        <ListGroup.Item>
+          <Link to="reviews">Click to see reviews</Link>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <Link to="products">Click to see products</Link>
+        </ListGroup.Item>
+      </ListGroup>
+    </div>
   );
 }

@@ -18,12 +18,14 @@ export default function ProductGrid() {
 
   function displayProducts() {
     return products.map((product) => {
+      const { name, image_url, price, stock } = product;
       return (
         <ProductCard
-          name={product.name}
-          image={product.image_url}
-          price={product.price}
-          stock={product.stock}
+          key={name}
+          name={name}
+          image={image_url}
+          price={price}
+          stock={stock}
         />
       );
     });

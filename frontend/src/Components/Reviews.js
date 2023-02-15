@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Reviews() {
-  return <div>TEST REVIEWS PAGE</div>;
+  return <h1>TEST REVIEWS PAGE</h1>;
 }

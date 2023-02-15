@@ -29,8 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'debug_toolbar',
     'rest_framework',
+    'corsheaders',
     'products'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
