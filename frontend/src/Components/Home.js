@@ -17,9 +17,7 @@ export default function Home() {
         <div className="other-info-container">
           <div className="other-info">
             <h4 className="other-info-title">PyShop - a better way to shop</h4>
-            <h6 className="other-info-text" style={{ "margin-top": "20px" }}>
-              PyShop Mobile
-            </h6>
+            <h6 className="other-info-text">PyShop Mobile</h6>
             <div>
               Enquire now about our special deals on mobile phones and contracts
               - our lowest ever prices! Available while stocks last, offer ends
