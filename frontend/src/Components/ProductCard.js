@@ -13,7 +13,7 @@ export default function ProductCard(props) {
           <div className="product-quantity">
             Quantity in stock: {props.stock}
           </div>
-          <Button variant="primary">Add to bag</Button>
+          <Button variant="light">Add to bag</Button>
         </div>
       </div>
     );

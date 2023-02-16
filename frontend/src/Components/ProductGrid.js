@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../main.css";
 import Network from "./Network";
 import ProductCard from "./ProductCard";
+import Navbar from "./Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
@@ -35,14 +36,17 @@ export default function ProductGrid() {
 
   return (
     <div>
-      <h1 className="title">Products</h1>
-      <Button variant="light">
-        <Link to="../reviews">Click for reviews</Link>
-      </Button>
-      <Button variant="light">
-        <Link to="/">Click for home page</Link>
-      </Button>
-      <div className="product-grid">{displayProducts()}</div>
+      <Navbar />
+      <div className="content">
+        <h3 className="subtitle">Products</h3>
+        <Button variant="light">
+          <Link to="reviews">Reviews</Link>
+        </Button>
+        <Button variant="light">
+          <Link to="/">Back to home page</Link>
+        </Button>
+        <div className="product-grid">{displayProducts()}</div>
+      </div>
     </div>
   );
 }
