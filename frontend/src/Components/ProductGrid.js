@@ -19,6 +19,10 @@ export default function ProductGrid() {
     setProducts(returnedProducts);
   }
 
+  async function returnOffers() {
+    window.alert("This will display available offers soon!");
+  }
+
   function displayProducts() {
     return products.map((product) => {
       const { name, image_url, price, stock } = product;
@@ -37,6 +41,7 @@ export default function ProductGrid() {
   return (
     <div>
       <Navbar />
+
       <div className="content">
         <h3 className="subtitle">Products</h3>
         <Button variant="light">
@@ -44,6 +49,9 @@ export default function ProductGrid() {
         </Button>
         <Button variant="light">
           <Link to="/">Back to home page</Link>
+        </Button>
+        <Button onClick={returnOffers} variant="light">
+          Click for available offers
         </Button>
         <div className="product-grid">{displayProducts()}</div>
       </div>

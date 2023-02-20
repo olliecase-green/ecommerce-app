@@ -4,15 +4,14 @@ import Button from "react-bootstrap/Button";
 
 export default function ProductCard(props) {
   function createProductCard() {
+    const { name, image, price, stock } = props;
     return (
       <div className="product-card">
-        <img src={props.image} alt="product" className="product-image" />
+        <img src={image} alt="product" className="product-image" />
         <div>
-          <h4>{props.name}</h4>
-          <div>£{props.price}</div>
-          <div className="product-quantity">
-            Quantity in stock: {props.stock}
-          </div>
+          <h4>{name}</h4>
+          <div>£{price}</div>
+          <div className="product-quantity">Quantity in stock: {stock}</div>
           <Button variant="light">Add to bag</Button>
         </div>
       </div>
