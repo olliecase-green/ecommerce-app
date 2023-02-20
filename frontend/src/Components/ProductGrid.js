@@ -40,7 +40,7 @@ export default function ProductGrid() {
       <div className="content">
         <h3 className="subtitle">Products</h3>
         <Button variant="light">
-          <Link to="reviews">Reviews</Link>
+          <Link to="../reviews">Reviews</Link>
         </Button>
         <Button variant="light">
           <Link to="/">Back to home page</Link>
