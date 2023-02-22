@@ -20,7 +20,9 @@ export default function ProductGrid() {
   }
 
   async function returnOffers() {
-    window.alert("This will display available offers soon!");
+    const offers = await network.getOffers();
+    console.log(offers);
+    window.alert(`Available offers: ${offers[0].description}`);
   }
 
   function displayProducts() {
