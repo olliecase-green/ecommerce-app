@@ -63,6 +63,7 @@ a:hover {
 .other-info {
   width: 50%;
   margin-left: 10px;
+  padding-right: 10px;
 }
 
 .other-info-title {
@@ -71,4 +72,8 @@ a:hover {
 
 .other-info-text {
   margin-top: 10px;
+}
+
+.btn {
+  margin-right: 10px;
 }

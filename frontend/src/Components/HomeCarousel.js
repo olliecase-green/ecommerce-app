@@ -13,7 +13,11 @@ export default function HomeCarousel() {
 
   return (
     <div className="carousel-container">
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel
+        className="carousel"
+        activeIndex={index}
+        onSelect={handleSelect}
+      >
         <Carousel.Item>
           <img className="d-block w-100" src={roastDinner} alt="First slide" />
           <Carousel.Caption>
