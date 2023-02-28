@@ -21,7 +21,6 @@ export default function ProductGrid() {
 
   async function returnOffers() {
     const offers = await network.getOffers();
-    console.log(offers);
     window.alert(`Available offers: ${offers[0].description}`);
   }
 
