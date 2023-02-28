@@ -43,7 +43,6 @@ export default function ProductGrid() {
   return (
     <div>
       <Navbar />
-
       <div className="content">
         <h3 className="subtitle">Products</h3>
         <Button variant="light">

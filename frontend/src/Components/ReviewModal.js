@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import ReviewForm from "./ReviewForm";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 export default function ReviewModal(props) {
   const { show, handleClose } = props;

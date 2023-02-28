@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-// import roastDinner from "frontendsrcimages\roast-dinner.jpg";
 import roastDinner from "../images/roast-dinner.jpg";
 import houses from "../images/houses.jpg";
 
