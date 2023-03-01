@@ -12,23 +12,6 @@ def get_products(request):
   serializer = ProductSerializer(products, many=True)
   return Response(serializer.data)
 
-@api_view(['POST'])
-def add_product(request):
-  serializer = ProductSerializer(data=request.data)
-  if serializer.is_valid():
-    serializer.save()
-  return Response(serializer.data)
-
-@api_view(['DELETE'])
-def delete_product(request, pk):
-  try:
-    product = Product.objects.filter(pk=pk)
-  except Product.DoesNotExist:
-    return Response(status=status.HTTP_404_NOT_FOUND)
-  if request.method == 'DELETE':
-    product.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
-
 # OFFERS
 @api_view()
 def get_offers(request):
@@ -43,7 +26,7 @@ def get_reviews(request):
   serializer = ReviewSerializer(reviews, many=True)
   return Response(serializer.data)
 
-@api_view()
+@api_view(['POST'])
 def post_review(request):
   serializer = ReviewSerializer(data=request.data)
   if serializer.is_valid():
