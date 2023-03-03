@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../main.css";
 import Navbar from "./Navbar";
 import Network from "./Network";
+import ListGroup from "react-bootstrap/ListGroup";
+import Badge from "react-bootstrap/Badge";
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -20,9 +22,22 @@ export default function Reviews() {
     return reviews.map((reviewItem) => {
       const { user, product, review } = reviewItem;
       return (
-        <div key={review}>
-          {review} about {product} written by {user}
-        </div>
+        <ListGroup as="ol">
+          <ListGroup.Item
+            as="li"
+            className="d-flex justify-content-between align-items-start"
+          >
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">
+                {user} reviewing {product}
+              </div>
+              {review}
+            </div>
+            <Badge bg="primary" pill>
+              Verified review
+            </Badge>
+          </ListGroup.Item>
+        </ListGroup>
       );
     });
   }
