@@ -2,9 +2,14 @@ import { Component } from "react";
 
 export default class Network extends Component {
   async getProducts() {
-    const response = await fetch("/products");
-    const json = await response.json();
-    return json;
+    try {
+      const response = await fetch("/products");
+      const json = await response.json();
+      return json;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   }
 
   async getOffers() {

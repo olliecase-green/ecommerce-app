@@ -3,6 +3,7 @@ import "../main.css";
 import Network from "./Network";
 import ProductCard from "./ProductCard";
 import Navbar from "./Navbar";
+import ErrorMessage from "./ErrorMessage";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
