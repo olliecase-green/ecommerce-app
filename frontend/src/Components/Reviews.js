@@ -20,7 +20,7 @@ export default function Reviews() {
     return reviews.map((reviewItem) => {
       const { user, product, review } = reviewItem;
       return (
-        <div key={user}>
+        <div key={review}>
           {review} about {product} written by {user}
         </div>
       );
@@ -31,8 +31,8 @@ export default function Reviews() {
     <div>
       <Navbar />
       <div className="content">
-        <h1>TEST REVIEWS PAGE</h1>
-        <div>{displayReviews()}</div>
+        <h3 className="subtitle">Product Reviews</h3>
+        <div className="reviews-content">{displayReviews()}</div>
       </div>
     </div>
   );

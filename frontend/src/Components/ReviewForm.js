@@ -16,6 +16,7 @@ export default function ReviewForm(props) {
   async function returnProducts() {
     const returnedProducts = await network.getProducts();
     setProducts(returnedProducts);
+    setProductName(returnedProducts[0].name);
   }
 
   const handleProductNameChange = (event) => {
@@ -26,13 +27,17 @@ export default function ReviewForm(props) {
     setReviewText(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (reviewText.length > 0) {
-      console.log(productName);
-      console.log(reviewText);
+  const handleSubmit = async (event) => {
+    if (reviewText) {
+      const response = await network.postReview(productName, reviewText);
+      let json = await response.json();
+      if (response.status === 200) {
+        setReviewText("");
+      } else {
+        throw new Error(json.error);
+      }
     } else {
-      console.log("Error: no review");
+      window.alert("Enter review text to submit!");
     }
   };
 
