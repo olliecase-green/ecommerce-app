@@ -25,7 +25,7 @@ export default function Home() {
                   contracts - our lowest ever prices! Available while stocks
                   last, offer ends on 28/02/2023.
                 </div>
-                <h6 className="mt-10">Need more inspiration?</h6>
+                <h6 className="mt-2">Need more inspiration?</h6>
                 <div>
                   Explore our latest food ideas, ingredients and recipes by
                   subscribing to our monthly newsletter. Taste the finer things
