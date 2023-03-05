@@ -24,7 +24,7 @@ export default class Network extends Component {
     return json;
   }
 
-  async postReview(productName, reviewText) {
+  async postReview(productName, reviewText, stars) {
     const response = await fetch(`/reviews/post`, {
       method: "POST",
       headers: {
@@ -34,6 +34,7 @@ export default class Network extends Component {
         user: "Test user",
         product: productName,
         review: reviewText,
+        stars: stars,
       }),
     });
     return response;

@@ -7,6 +7,7 @@ export default function ReviewForm(props) {
   const [products, setProducts] = useState([]);
   const [reviewText, setReviewText] = useState("");
   const [productName, setProductName] = useState("");
+  const [stars, setStars] = useState(0);
   const network = new Network();
 
   useEffect(() => {
@@ -23,13 +24,18 @@ export default function ReviewForm(props) {
     setProductName(event.target.value);
   };
 
+  const handleStarsChange = (event) => {
+    setProductName(event.target.value);
+  };
+
   const handleReviewTextChange = (event) => {
     setReviewText(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async () => {
     if (reviewText) {
-      const response = await network.postReview(productName, reviewText);
+      console.log({ productName, reviewText, stars });
+      const response = await network.postReview(productName, reviewText, stars);
       let json = await response.json();
       if (response.status === 200) {
         setReviewText("");
@@ -48,15 +54,26 @@ export default function ReviewForm(props) {
     });
   }
 
+  function displayStars() {
+    const stars = [1, 2, 3, 4, 5];
+    return stars.map((star) => <option>{star}</option>);
+  }
+
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="productsList">
         <Form.Label>Product</Form.Label>
         <Form.Select value={productName} onChange={handleProductNameChange}>
           {displayProductOptions()}
         </Form.Select>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+      <Form.Group className="mb-3" controlId="productsList">
+        <Form.Label>Number of stars</Form.Label>
+        <Form.Select value={productName} onChange={handleStarsChange}>
+          {displayStars()}
+        </Form.Select>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="reviewText">
         <Form.Label>Share your product review!</Form.Label>
         <Form.Control
           as="textarea"

@@ -21,7 +21,7 @@ export default function Reviews() {
 
   function displayReviews() {
     return reviews.map((reviewItem) => {
-      const { user, product, review } = reviewItem;
+      const { user, product, review, stars } = reviewItem;
       return (
         <ListGroup as="ol">
           <ListGroup.Item
@@ -35,7 +35,7 @@ export default function Reviews() {
               {review}
             </div>
             <Badge bg="primary" pill>
-              Verified review
+              {stars} stars
             </Badge>
           </ListGroup.Item>
         </ListGroup>
