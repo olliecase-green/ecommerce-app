@@ -24,7 +24,7 @@ export default function ProductCard(props) {
           <Button onClick={handleAddToBag} className="btn" variant="dark">
             Add to bag
           </Button>
-          <Button onClick={handleShow} className="btn" variant="light">
+          <Button onClick={handleShow} className="ms-1" variant="light">
             Add review
           </Button>
           <ReviewModal show={show} handleClose={handleClose} />
