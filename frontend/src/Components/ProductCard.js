@@ -27,7 +27,7 @@ export default function ProductCard(props) {
           <Button onClick={handleShow} className="ms-1" variant="light">
             Add review
           </Button>
-          <ReviewModal show={show} handleClose={handleClose} />
+          <ReviewModal show={show} product={name} handleClose={handleClose} />
         </div>
       </div>
     );

@@ -11,7 +11,7 @@ export default function ReviewModal(props) {
         <Modal.Title>Review Product</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <ReviewForm handleClose={handleClose} />
+        <ReviewForm product={props.product} handleClose={handleClose} />
       </Modal.Body>
     </Modal>
   );

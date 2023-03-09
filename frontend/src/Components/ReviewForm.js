@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 export default function ReviewForm(props) {
   const [products, setProducts] = useState([]);
   const [reviewText, setReviewText] = useState("");
-  const [productName, setProductName] = useState("");
+  const [productName, setProductName] = useState(props.product);
   const [stars, setStars] = useState(0);
   const network = new Network();
 
@@ -17,7 +17,6 @@ export default function ReviewForm(props) {
   async function returnProducts() {
     const returnedProducts = await network.getProducts();
     setProducts(returnedProducts);
-    setProductName(returnedProducts[0].name);
   }
 
   const handleProductNameChange = (event) => {
