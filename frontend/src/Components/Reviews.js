@@ -16,15 +16,14 @@ export default function Reviews() {
 
   async function returnReviews() {
     const returnedReviews = await network.getReviews();
-    console.log(returnedReviews);
     setReviews(returnedReviews);
   }
 
   function displayReviews() {
     return reviews.map((reviewItem) => {
-      const { user, product, review, stars } = reviewItem;
+      const { user, product, review } = reviewItem;
       return (
-        <ListGroup as="ol">
+        <ListGroup key={review} as="ol">
           <ListGroup.Item
             as="li"
             className="d-flex justify-content-between align-items-start"
@@ -35,8 +34,8 @@ export default function Reviews() {
               </div>
               {review}
             </div>
-            <Badge bg="primary" pill>
-              {stars} stars
+            <Badge bg="secondary" pill>
+              ⭐⭐⭐
             </Badge>
           </ListGroup.Item>
         </ListGroup>

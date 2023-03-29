@@ -3,7 +3,6 @@ import "../main.css";
 import Network from "./Network";
 import ProductCard from "./ProductCard";
 import Navbar from "./Navbar";
-import ErrorMessage from "./ErrorMessage";
 import Subtitle from "./Subtitle";
 import Card from "react-bootstrap/Card";
 
@@ -18,11 +17,6 @@ export default function ProductGrid() {
   async function returnProducts() {
     const returnedProducts = await network.getProducts();
     setProducts(returnedProducts);
-  }
-
-  async function returnOffers() {
-    const offers = await network.getOffers();
-    window.alert(`Available offers: ${offers[0].description}`);
   }
 
   function displayProducts() {

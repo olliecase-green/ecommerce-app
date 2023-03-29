@@ -1,9 +1,9 @@
 import { Component } from "react";
 
 export default class Network extends Component {
-  async getProducts() {
+  async makeFetch(path) {
     try {
-      const response = await fetch("/products");
+      const response = await fetch(`/${path}`);
       const json = await response.json();
       return json;
     } catch (error) {
@@ -12,20 +12,15 @@ export default class Network extends Component {
     }
   }
 
-  async getOffers() {
-    const response = await fetch("/offers");
-    const json = await response.json();
-    return json;
+  getProducts() {
+    return this.makeFetch("products");
   }
 
-  async getReviews() {
-    const response = await fetch("/reviews");
-    const json = await response.json();
-    return json;
+  getReviews() {
+    return this.makeFetch("reviews");
   }
 
   async postReview(productName, reviewText) {
-    console.log(productName, reviewText);
     const response = await fetch(`/reviews/post`, {
       method: "POST",
       headers: {

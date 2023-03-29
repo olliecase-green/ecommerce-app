@@ -8,7 +8,7 @@ export default function ReviewModal(props) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Review Product</Modal.Title>
+        <Modal.Title>Add a review for {[props.product]}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <ReviewForm product={props.product} handleClose={handleClose} />
