@@ -7,7 +7,6 @@ export default function ReviewForm(props) {
   const [products, setProducts] = useState([]);
   const [reviewText, setReviewText] = useState("");
   const [productName, setProductName] = useState(props.product);
-  const [stars, setStars] = useState(0);
   const network = new Network();
 
   useEffect(() => {
@@ -31,10 +30,10 @@ export default function ReviewForm(props) {
     setReviewText(event.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
     if (reviewText) {
-      console.log({ productName, reviewText, stars });
-      const response = await network.postReview(productName, reviewText, stars);
+      event.preventDefault();
+      const response = await network.postReview(productName, reviewText);
       let json = await response.json();
       if (response.status === 200) {
         setReviewText("");
@@ -55,7 +54,7 @@ export default function ReviewForm(props) {
 
   function displayStars() {
     const stars = [1, 2, 3, 4, 5];
-    return stars.map((star) => <option>{star}</option>);
+    return stars.map((star) => <option key={star}>{star}</option>);
   }
 
   return (

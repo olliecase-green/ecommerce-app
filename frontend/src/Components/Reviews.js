@@ -16,6 +16,7 @@ export default function Reviews() {
 
   async function returnReviews() {
     const returnedReviews = await network.getReviews();
+    console.log(returnedReviews);
     setReviews(returnedReviews);
   }
 
