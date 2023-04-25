@@ -7,4 +7,4 @@ The completed app will have:
 - Product basket with add to basket
 - Product review submission
 
-Products, offers and reviews will be stored in the server-side SQLite database.
+Products, users and reviews will be stored in the server-side SQLite database.
