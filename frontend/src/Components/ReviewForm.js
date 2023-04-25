@@ -5,12 +5,11 @@ import Button from "react-bootstrap/Button";
 
 export default function ReviewForm(props) {
   const [reviewText, setReviewText] = useState("");
-  const [noStars, setNoStars] = useState(5);
+  const [numStars, setNumStars] = useState(5);
   const network = new Network();
 
   const handleStarsChange = (event) => {
-    setNoStars(event.target.value);
-    console.log(event.target.value);
+    setNumStars(event.target.value);
   };
 
   const handleReviewTextChange = (event) => {
@@ -21,9 +20,11 @@ export default function ReviewForm(props) {
     if (!reviewText) {
       window.alert("Enter review text to submit!");
     } else {
-      // Remove prevent default when finished with ReviewForm component
-      event.preventDefault();
-      const response = await network.postReview(props.product, reviewText);
+      const response = await network.postReview(
+        props.product,
+        reviewText,
+        numStars
+      );
       let json = await response.json();
       if (response.status !== 200) throw new Error(json.error);
       else setReviewText("");
@@ -31,7 +32,7 @@ export default function ReviewForm(props) {
   };
 
   function displayStars() {
-    const stars = [1, 2, 3, 4, 5];
+    const stars = [5, 4, 3, 2, 1];
     return stars.map((star) => <option key={star}>{star}</option>);
   }
 
@@ -40,7 +41,7 @@ export default function ReviewForm(props) {
       <Form.Group className="mb-3" controlId="productsList">
         <Form.Label>Number of stars</Form.Label>
         {/* Sort out dropdown for number of stars */}
-        <Form.Select onClick={handleStarsChange}>{displayStars()}</Form.Select>
+        <Form.Select onChange={handleStarsChange}>{displayStars()}</Form.Select>
       </Form.Group>
       <Form.Group className="mb-3" controlId="reviewText">
         <Form.Label>Share your product review!</Form.Label>

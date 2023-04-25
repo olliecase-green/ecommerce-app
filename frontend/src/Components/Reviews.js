@@ -19,9 +19,13 @@ export default function Reviews() {
     setReviews(returnedReviews);
   }
 
+  function displayReviewStars(stars) {
+    return "⭐".repeat(stars);
+  }
+
   function displayReviews() {
     return reviews.map((reviewItem) => {
-      const { user, product, review } = reviewItem;
+      const { product, review, stars } = reviewItem;
       return (
         <ListGroup key={review} as="ol">
           <ListGroup.Item
@@ -29,13 +33,11 @@ export default function Reviews() {
             className="d-flex justify-content-between align-items-start"
           >
             <div className="ms-2 me-auto">
-              <div className="fw-bold">
-                {user} reviewing {product}
-              </div>
+              <div className="fw-bold">Review of {product}</div>
               {review}
             </div>
             <Badge bg="secondary" pill>
-              ⭐⭐⭐
+              {displayReviewStars(stars)}
             </Badge>
           </ListGroup.Item>
         </ListGroup>

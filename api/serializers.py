@@ -15,4 +15,4 @@ class OfferSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
   class Meta:
     model = review_models.Review
-    fields = ('user', 'product', 'review')
+    fields = ('product', 'review', 'stars')

@@ -20,16 +20,17 @@ export default class Network extends Component {
     return this.makeFetch("reviews");
   }
 
-  async postReview(productName, reviewText) {
+  async postReview(productName, reviewText, stars) {
+    console.log(productName, reviewText, stars);
     const response = await fetch(`/reviews/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: "Test user",
         product: productName,
         review: reviewText,
+        stars: stars,
       }),
     });
     return response;

@@ -22,7 +22,7 @@ def get_offers(request):
 # REVIEWS
 @api_view()
 def get_reviews(request):
-  reviews = Review.objects.all()
+  reviews = Review.objects.all().order_by('-stars')
   serializer = ReviewSerializer(reviews, many=True)
   return Response(serializer.data)
 
