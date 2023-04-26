@@ -40,7 +40,6 @@ export default function ReviewForm(props) {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="productsList">
         <Form.Label>Number of stars</Form.Label>
-        {/* Sort out dropdown for number of stars */}
         <Form.Select onChange={handleStarsChange}>{displayStars()}</Form.Select>
       </Form.Group>
       <Form.Group className="mb-3" controlId="reviewText">
