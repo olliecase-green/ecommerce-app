@@ -9,9 +9,10 @@ Products and reviews are stored in the server-side SQLite database.
 ## Instructions:
 - Git clone the repository onto your local machine
 - Alternatively, download the zip file, unzip and open in Visual Studio Code
-- Use python manage.py runserver to launch the backend
+- Navigate to the root ecommerce-app folder and use the command `pip install -r requirements` to install the relevant packages
+- You may need to install pip if you do not have this on your machine (https://pip.pypa.io/en/stable/installation/)
+- Once the requirements are installe, use `python manage.py runserver` to launch the backend
 - Navigate to the frontend folder
-- Use npm install, then npm start to launch the application
+- Use `npm install` then `npm start` to launch the application
 - You may need to install node / npm if the command is not recognised
 - You should now be able to view and interact with the application
-- Use the buttons to select an account and view the data
